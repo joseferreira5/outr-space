@@ -49,8 +49,6 @@ Created, designed, and developed by [Jose Ferreira](https://github.com/joseferre
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
 _The **OUTr SPACE** MVP should allow for a user to sign up and log in, granting them the ability to create a new community, then create, edit, or delete their own posts within any community._
 
 ### Client (Front End)
@@ -59,15 +57,11 @@ _The **OUTr SPACE** MVP should allow for a user to sign up and log in, granting 
 
 > Use the Wireframes section to display desktop, tablet and mobile views.
 
-![Dummy Link](url)
+![OUTR SPACE Landing](./mockups/OutrSpaceLanding.png)
 
 - Desktop Landing
 
-![Dummy Link](url)
-
-- Desktop Hero
-
-![Dummy Link](url)
+![Dummy Link](./mockups/OutrSpaceGalaxy.png)
 
 - Resource Index
 
@@ -147,7 +141,7 @@ src
 
 #### ERD Model
 
-[OUTrSPACE ERB](./mockups/OutrSpaceERB.png)
+![OUTrSPACE ERB](./mockups/OutrSpaceERB.png)
 
 #### Data Heirarchy
 
@@ -165,18 +159,18 @@ database_db
 
 #### Data Heirarchy
 
-GET /api/users
-GET /api/users/:id
-POST /api/users
-PUT /api/users/:id
-GET /api/galaxies/
-GET /api/galaxies/:id
-POST /api/galaxies/
-GET /api/galaxies/:galaxy_id/posts/
-GET /api/galaxies/:galaxy_id/posts/:id
-POST /api/galaxies/:galaxy_id/posts/
-PUT /api/galaxies/:galaxy_id/posts/:id
-DELETE /api/galaxies/:galaxy_id/posts/:id
+- GET /api/users
+- GET /api/users/:id
+- POST /api/users
+- PUT /api/users/:id
+- GET /api/galaxies/
+- GET /api/galaxies/:id
+- POST /api/galaxies/
+- GET /api/galaxies/:galaxy_id/posts/
+- GET /api/galaxies/:galaxy_id/posts/:id
+- POST /api/galaxies/:galaxy_id/posts/
+- PUT /api/galaxies/:galaxy_id/posts/:id
+- DELETE /api/galaxies/:galaxy_id/posts/:id
 
 <br>
 
