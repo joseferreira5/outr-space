@@ -55,27 +55,17 @@ _The **OUTr SPACE** MVP should allow for a user to sign up and log in, granting 
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views.
-
-![OUTR SPACE Landing](./mockups/OutrSpaceLanding.png)
-
 - Desktop Landing
 
-![Dummy Link](./mockups/OutrSpaceGalaxy.png)
+![OUTr SPACE Landing](./mockups/OutrSpaceLanding.png)
 
 - Resource Index
 
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
+![OUTr SPACE Galaxy](./mockups/OutrSpaceGalaxy.png)
 
 - Mobile Resource Index
+
+![OUTr SPACE Mobile](./mockups/OutrSpaceMobile.png)
 
 #### Component Hierarchy
 
@@ -113,8 +103,6 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
@@ -125,15 +113,11 @@ src
 
 #### Component Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 | Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
 | Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
 | TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evalute possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
