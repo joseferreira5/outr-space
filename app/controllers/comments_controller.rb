@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params, user_id: @current_user.id)
+    @comment = Comment.new(comment_params)
 
     if @comment.save
       render json: @comment, status: :created, location: @comment
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
   end
 
   # Only allow a trusted parameter "white list" through.
-  def post_params
-    params.require(:comment).permit(:title, :body, :post_id)
+  def comment_params
+    params.require(:comment).permit(:title, :body, :post_id).merge(user_id: @current_user.id)
   end
 end

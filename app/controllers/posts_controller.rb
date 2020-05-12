@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(user_params, user_id: @current_user.id)
+    @post = Post.new(post_params)
 
     if @post.save
       render json: @post, status: :created, location: @post
@@ -44,6 +44,6 @@ class PostsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content).merge(user_id: @current_user.id)
   end
 end
