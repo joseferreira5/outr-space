@@ -1,13 +1,13 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+
+import GlobalStyle from './components/shared/GlobalStyle';
+import theme from './components/shared/theme';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Switch>
-        <Route />
-      </Switch>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
     </ThemeProvider>
   );
 }
