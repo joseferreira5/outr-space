@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Hero from './Hero';
+
 const Section = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
 `;
 
-export default function LogIn() {
+export default function Home({ user }) {
   return (
     <Section>
-      <p></p>
+      <Hero />
     </Section>
   );
 }
