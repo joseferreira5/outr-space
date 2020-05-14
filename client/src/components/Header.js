@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { Nav, NavLink } from './shared/NavLink';
 import Button from './shared/Button';
 import logo from '../assets/astronaut.svg';
 
@@ -36,26 +37,6 @@ const Title = styled(Link)`
   }
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  margin-left: 2em;
-  font-size: 1rem;
-  color: #000000;
-  border: 1px solid ${props => props.theme.darkShade};
-  padding: 10px 15px;
-
-  &:hover {
-    transition: all 0.5s ease-in;
-    background-color: ${props => props.theme.darkShade};
-    color: ${props => props.theme.lightShade};
-  }
-`;
-
 const Text = styled.p`
   font-size: 1.2rem;
   color: ${props => props.theme.darkShade};
@@ -77,8 +58,8 @@ export default function Header({ user, handleLogout }) {
         </Nav>
       ) : (
         <Nav>
-          <StyledLink to="/login">LOG IN</StyledLink>
-          <StyledLink to="/signup">SIGN UP</StyledLink>
+          <NavLink to="/login">LOG IN</NavLink>
+          <NavLink to="/signup">SIGN UP</NavLink>
         </Nav>
       )}
     </StyledHeader>

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Button from './shared/Button';
+import { Nav, NavLink } from './shared/NavLink';
 import { getPost } from '../services/posts';
 
 const Section = styled.section`
@@ -74,10 +75,10 @@ export default function Post({ user }) {
           {user ? (
             <Button>Comment</Button>
           ) : (
-            <>
-              <Button>Sign In</Button>
-              <Button>Log In</Button>
-            </>
+            <Nav>
+              <NavLink to="/login">Log In</NavLink>
+              <NavLink to="/signup">Sign Up</NavLink>
+            </Nav>
           )}
         </PostContent>
       )}
