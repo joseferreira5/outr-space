@@ -26,8 +26,12 @@ export default function Post() {
 
   return (
     <Container>
-      <Title>{post.title}</Title>
-      <Text>{post.content}</Text>
+      {post && (
+        <PostBox>
+          <Title>{post.title}</Title>
+          <Text>{post.content}</Text>
+        </PostBox>
+      )}
     </Container>
   );
 }
