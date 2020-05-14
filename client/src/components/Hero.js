@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import heroBackground from '../assets/heroBackground.jpg';
 
-const Section = styled.div`
+const HeroImage = styled.div`
   background-image: url(${heroBackground});
   background-position: center;
   background-size: cover;
@@ -23,8 +23,8 @@ const Text = styled.p`
 
 export default function Hero() {
   return (
-    <Section>
+    <HeroImage>
       <Text>WELCOME TO OUTR SPACE!</Text>
-    </Section>
+    </HeroImage>
   );
 }

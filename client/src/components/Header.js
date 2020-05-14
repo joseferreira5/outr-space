@@ -72,7 +72,7 @@ export default function Header({ user, handleLogout }) {
       </Heading>
       {user ? (
         <Nav>
-          <Text>{user.username}</Text>
+          <Text>Welcome, {user.username}</Text>
           <Button onClick={handleLogout}>LOG OUT</Button>
         </Nav>
       ) : (
