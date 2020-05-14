@@ -25,10 +25,11 @@ const Logo = styled.img`
   height: 80px;
 `;
 
-const Title = styled.h1`
+const Title = styled(Link)`
   font-family: 'Roboto Slab', sans-serif;
   font-size: 2.5rem;
   color: ${props => props.theme.darkShade};
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
@@ -38,7 +39,6 @@ const Title = styled.h1`
 const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
-  width: 20%;
 `;
 
 const StyledLink = styled(Link)`
@@ -59,6 +59,8 @@ const StyledLink = styled(Link)`
 const Text = styled.p`
   font-size: 1.2rem;
   color: ${props => props.theme.darkShade};
+  align-self: center;
+  margin-right: 2em;
 `;
 
 export default function Header({ user, handleLogout }) {
@@ -66,7 +68,7 @@ export default function Header({ user, handleLogout }) {
     <StyledHeader>
       <Heading>
         <Logo src={logo} alt="astronaut" />
-        <Title>OUTr SPACE</Title>
+        <Title to="/">OUTr SPACE</Title>
       </Heading>
       {user ? (
         <Nav>

@@ -9,15 +9,22 @@ import LogIn from './LogIn';
 const StyledMain = styled.main`
   position: relative;
   width: 100%;
+  height: 90vh;
 `;
 
-export default function Main({ user }) {
+export default function Main({ user, handleLogin, handleRegister }) {
   return (
     <StyledMain>
       <Switch>
-        <Route exact path="/" render={() => <Home user={user} />} />
-        <Route path="/signup" render={() => <SignUp />} />
-        <Route path="/signup" render={() => <LogIn />} />
+        <Route exact path="/">
+          <Home user={user} />
+        </Route>
+        <Route path="/signup">
+          <SignUp handleRegister={handleRegister} />
+        </Route>
+        <Route path="/login">
+          <LogIn handleLogin={handleLogin} />
+        </Route>
       </Switch>
     </StyledMain>
   );
