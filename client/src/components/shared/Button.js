@@ -5,11 +5,13 @@ const Button = styled.button`
   color: #000000;
   border: 1px solid ${props => props.theme.darkShade};
   padding: 10px 15px;
+  border-radius: 0.3em;
 
   &:hover {
     transition: all 0.5s ease-in;
     background-color: ${props => props.theme.darkShade};
     color: ${props => props.theme.lightShade};
+    cursor: pointer;
   }
 `;
 

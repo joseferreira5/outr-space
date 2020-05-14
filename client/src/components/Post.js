@@ -2,17 +2,58 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Button from './shared/Button';
 import { getPost } from '../services/posts';
 
-const Container = styled.div``;
+const Section = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 25%;
+  grid-template-rows: 30% 1fr;
+  min-height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3em;
+`;
 
-const PostBox = styled.div``;
+const PostContent = styled.div`
+  grid-column: 1 / 2;
+  background-color: ${props => props.theme.lightShade};
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2em 5em;
+`;
 
-const Title = styled.h3``;
+const Title = styled.h3`
+  font-size: 2rem;
+  font-weight: bold;
+`;
 
 const Text = styled.p``;
 
-export default function Post() {
+const CommSection = styled.div`
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Comment = styled.div`
+  background-color: ${props => props.theme.lightShade};
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1.5em;
+  min-height: 5em;
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+`;
+
+export default function Post({ user }) {
   const [post, setPost] = useState(null);
   const { id } = useParams();
 
@@ -25,13 +66,30 @@ export default function Post() {
   }, []);
 
   return (
-    <Container>
+    <Section>
       {post && (
-        <PostBox>
+        <PostContent>
           <Title>{post.title}</Title>
           <Text>{post.content}</Text>
-        </PostBox>
+          {user ? (
+            <Button>Comment</Button>
+          ) : (
+            <>
+              <Button>Sign In</Button>
+              <Button>Log In</Button>
+            </>
+          )}
+        </PostContent>
       )}
-    </Container>
+      <CommSection>
+        {post &&
+          post.comments &&
+          post.comments.map(comment => (
+            <Comment>
+              <Text>{comment.body}</Text>
+            </Comment>
+          ))}
+      </CommSection>
+    </Section>
   );
 }
