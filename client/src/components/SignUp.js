@@ -43,6 +43,7 @@ export default function SignUp({ handleRegister }) {
   const handleChange = e => {
     const { name, value } = e.target;
     setUser({
+      ...user,
       [name]: value,
     });
   };
@@ -81,7 +82,7 @@ export default function SignUp({ handleRegister }) {
           Password:{' '}
           <Input
             id="password"
-            type="text"
+            type="password"
             name="password"
             value={user.password}
             onChange={handleChange}

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CreateComment from './CreateComment';
 import Button from './shared/Button';
 import { Nav, NavLink } from './shared/NavLink';
-import { getPost, deletePost } from '../services/posts';
+import { getPost, deletePost, deleteComment } from '../services/posts';
 
 const Section = styled.section`
   display: grid;
@@ -87,9 +87,13 @@ export default function Post({ user }) {
     setCreated(false);
   }, [created]);
 
-  const handleDelete = () => {
+  const handleDeletePost = () => {
     deletePost(post.id);
     history.push('/');
+  };
+
+  const handleDeleteComm = id => {
+    deleteComment(post.id, id);
   };
 
   return (
@@ -107,8 +111,8 @@ export default function Post({ user }) {
               />
               {user.id === post.user_id && (
                 <OwnerOptions>
-                  <NavLink>EDIT</NavLink>
-                  <Button onClick={handleDelete}>DELETE</Button>
+                  <NavLink to={`/posts/${post.id}/edit`}>EDIT</NavLink>
+                  <Button onClick={handleDeletePost}>DELETE</Button>
                 </OwnerOptions>
               )}
             </>
@@ -129,6 +133,13 @@ export default function Post({ user }) {
           post.comments.map(comment => (
             <Comment key={comment.id}>
               <Text>{comment.body}</Text>
+              {user && user.id === comment.user_id && (
+                <OwnerOptions>
+                  <Button onClick={() => handleDeleteComm(comment.id)}>
+                    DELETE
+                  </Button>
+                </OwnerOptions>
+              )}
             </Comment>
           ))}
       </CommSection>

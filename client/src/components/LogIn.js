@@ -71,7 +71,7 @@ export default function LogIn({ handleLogin }) {
           Password:{' '}
           <Input
             id="password"
-            type="text"
+            type="password"
             name="password"
             value={user.password}
             onChange={handleChange}
