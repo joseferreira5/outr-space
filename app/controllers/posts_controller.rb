@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :authorize_request, only: %i[create update destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     render json: @posts, include: :comments, status: :ok
   end
 

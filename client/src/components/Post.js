@@ -15,9 +15,7 @@ const Section = styled.section`
   border-radius: 0.3em;
   min-height: 100%;
   width: 80%;
-  margin: 0 auto;
-  margin-top: 3em;
-  margin-bottom: 5em;
+  margin: 3em auto;
 `;
 
 const PostContent = styled.div`
@@ -28,7 +26,7 @@ const PostContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1em 2.5em;
+  padding: 1em 2em;
   margin: 1em 1em;
 `;
 
@@ -48,6 +46,7 @@ const NavContainer = styled.div`
   border: solid 1px #000000;
   border-radius: 0.3em;
   padding: 1em;
+  margin-top: 1em;
 `;
 
 const CommSection = styled.div`

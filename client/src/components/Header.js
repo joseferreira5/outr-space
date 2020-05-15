@@ -8,6 +8,8 @@ import logo from '../assets/astronaut.svg';
 
 const StyledHeader = styled.header`
   background-color: ${props => props.theme.lightShade};
+  position: fixed;
+  z-index: 1000;
   height: 8vh;
   width: 100%;
   display: flex;

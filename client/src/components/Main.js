@@ -11,7 +11,8 @@ import CreatePost from './CreatePost';
 const StyledMain = styled.main`
   position: relative;
   width: 100%;
-  height: 92vh;
+  height: 100vh;
+  padding-top: 8vh;
 `;
 
 export default function Main({ user, handleLogin, handleRegister }) {
