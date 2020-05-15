@@ -11,10 +11,13 @@ const Section = styled.section`
   display: grid;
   grid-template-columns: 1fr 25%;
   grid-template-rows: minmax(30%, auto) 1fr;
+  background-color: ${props => props.theme.darkAccent};
+  border-radius: 0.3em;
   min-height: 100%;
   width: 80%;
   margin: 0 auto;
   margin-top: 3em;
+  margin-bottom: 5em;
 `;
 
 const PostContent = styled.div`
@@ -25,7 +28,8 @@ const PostContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 2em 5em;
+  padding: 1em 2.5em;
+  margin: 1em 1em;
 `;
 
 const Title = styled.h3`
@@ -51,12 +55,15 @@ const CommSection = styled.div`
   grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  margin: 0 1em;
 `;
 
 const Comment = styled.div`
   background-color: ${props => props.theme.lightShade};
   margin-top: 1.5em;
   min-height: 5em;
+  width: 95%;
   border-radius: 0.3em;
   display: flex;
   flex-direction: column;
@@ -74,7 +81,7 @@ const OwnerOptions = styled.div`
 
 export default function Post({ user }) {
   const [post, setPost] = useState(null);
-  const [created, setCreated] = useState(false);
+  const [updated, setUpdated] = useState(false);
   const { id } = useParams();
   const history = useHistory();
 
@@ -84,8 +91,8 @@ export default function Post({ user }) {
       setPost(singlePost);
     }
     retrievePost();
-    setCreated(false);
-  }, [created]);
+    setUpdated(false);
+  }, [updated, id]);
 
   const handleDeletePost = () => {
     deletePost(post.id);
@@ -94,6 +101,7 @@ export default function Post({ user }) {
 
   const handleDeleteComm = id => {
     deleteComment(post.id, id);
+    setUpdated(!updated);
   };
 
   return (
@@ -107,7 +115,7 @@ export default function Post({ user }) {
               <CreateComment
                 user={user}
                 postId={post.id}
-                onCreate={() => setCreated(!created)}
+                onCreate={() => setUpdated(!updated)}
               />
               {user.id === post.user_id && (
                 <OwnerOptions>
@@ -120,8 +128,8 @@ export default function Post({ user }) {
             <NavContainer>
               <Text>Log in or create an account to comment.</Text>
               <Nav>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">LOG IN</NavLink>
+                <NavLink to="/signup">SIGN UP</NavLink>
               </Nav>
             </NavContainer>
           )}

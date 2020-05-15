@@ -8,7 +8,7 @@ export const Nav = styled.nav`
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  margin-left: 2em;
+  margin-left: 1em;
   font-size: 1rem;
   color: #000000;
   background-color: ${props => props.theme.lightShade};
