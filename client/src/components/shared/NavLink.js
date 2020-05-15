@@ -11,7 +11,9 @@ export const NavLink = styled(Link)`
   margin-left: 2em;
   font-size: 1rem;
   color: #000000;
+  background-color: ${props => props.theme.lightShade};
   border: 1px solid ${props => props.theme.darkShade};
+  border-radius: 0.3em;
   padding: 10px 15px;
 
   &:hover {

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import CreateComment from './CreateComment';
+import Button from './shared/Button';
 import { Nav, NavLink } from './shared/NavLink';
-import { getPost } from '../services/posts';
+import { getPost, deletePost } from '../services/posts';
 
 const Section = styled.section`
   display: grid;
@@ -63,10 +64,19 @@ const Comment = styled.div`
   padding: 1em;
 `;
 
+const OwnerOptions = styled.div`
+  display: flex;
+
+  button {
+    margin-left: 0.5em;
+  }
+`;
+
 export default function Post({ user }) {
   const [post, setPost] = useState(null);
   const [created, setCreated] = useState(false);
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     async function retrievePost() {
@@ -77,6 +87,11 @@ export default function Post({ user }) {
     setCreated(false);
   }, [created]);
 
+  const handleDelete = () => {
+    deletePost(post.id);
+    history.push('/');
+  };
+
   return (
     <Section>
       {post && (
@@ -84,11 +99,19 @@ export default function Post({ user }) {
           <Title>{post.title}</Title>
           <Text>{post.content}</Text>
           {user ? (
-            <CreateComment
-              user={user}
-              postId={post.id}
-              onCreate={() => setCreated(!created)}
-            />
+            <>
+              <CreateComment
+                user={user}
+                postId={post.id}
+                onCreate={() => setCreated(!created)}
+              />
+              {user.id === post.user_id && (
+                <OwnerOptions>
+                  <NavLink>EDIT</NavLink>
+                  <Button onClick={handleDelete}>DELETE</Button>
+                </OwnerOptions>
+              )}
+            </>
           ) : (
             <NavContainer>
               <Text>Log in or create an account to comment.</Text>

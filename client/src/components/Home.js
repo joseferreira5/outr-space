@@ -6,6 +6,7 @@ import Posts from './Posts';
 
 const Section = styled.section`
   width: 100%;
+  padding-bottom: 3em;
 `;
 
 export default function Home({ user }) {
