@@ -30,6 +30,9 @@ export default function Main({ user, handleLogin, handleRegister }) {
         <Route path="/posts/:id">
           <Post user={user} />
         </Route>
+        <Route exact path="/posts/:id/edit">
+          <CreatePost user={user} />
+        </Route>
         <Route path="/create-post">
           <CreatePost user={user} />
         </Route>
