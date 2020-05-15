@@ -7,6 +7,7 @@ import SignUp from './SignUp';
 import LogIn from './LogIn';
 import Post from './Post';
 import CreatePost from './CreatePost';
+import EditPost from './EditPost';
 
 const StyledMain = styled.main`
   position: relative;
@@ -28,11 +29,11 @@ export default function Main({ user, handleLogin, handleRegister }) {
         <Route path="/login">
           <LogIn handleLogin={handleLogin} />
         </Route>
-        <Route path="/posts/:id">
+        <Route exact path="/posts/:id">
           <Post user={user} />
         </Route>
         <Route exact path="/posts/:id/edit">
-          <CreatePost user={user} />
+          <EditPost user={user} />
         </Route>
         <Route path="/create-post">
           <CreatePost user={user} />

@@ -53,12 +53,15 @@ export default function EditPost({ user }) {
   const { id } = useParams();
 
   useEffect(() => {
-    getPost(id);
-    setPost({
-      title: post.title,
-      content: post.content,
-    });
-  });
+    async function retrievePost() {
+      const singlePost = await getPost(id);
+      setPost({
+        title: singlePost.title,
+        content: singlePost.content,
+      });
+    }
+    retrievePost();
+  }, [id]);
 
   const handleChange = e => {
     const { value, name } = e.target;
@@ -70,8 +73,8 @@ export default function EditPost({ user }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    updatePost(post);
-    history.push('/');
+    updatePost(id, post);
+    history.push(`/posts/${id}`);
   };
 
   return (

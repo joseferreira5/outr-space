@@ -24,7 +24,7 @@ const Text = styled.p`
 export default function Hero() {
   return (
     <HeroImage>
-      <Text>WELCOME TO OUTR SPACE!</Text>
+      <Text>NOW ENTERING OUTR SPACE!</Text>
     </HeroImage>
   );
 }
