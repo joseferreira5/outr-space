@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Button from './shared/Button';
 import { getPosts } from '../services/posts';
 
 const Container = styled.div`
@@ -10,6 +11,12 @@ const Container = styled.div`
   width: 80%;
   margin: 0 auto;
   margin-top: 1.5em;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Heading = styled.h2`
@@ -49,7 +56,7 @@ const CommCount = styled.p`
   font-size: 1rem;
 `;
 
-export default function Posts() {
+export default function Posts({ user }) {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
@@ -62,7 +69,14 @@ export default function Posts() {
 
   return (
     <Container>
-      <Heading>Latest Posts</Heading>
+      <Header>
+        <Heading>Latest Posts</Heading>
+        {user && (
+          <StyledLink to={'/create-post'}>
+            <Button>NEW POST</Button>
+          </StyledLink>
+        )}
+      </Header>
       {posts &&
         posts.map(post => (
           <StyledLink key={post.id} to={`/posts/${post.id}`}>

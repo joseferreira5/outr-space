@@ -12,7 +12,7 @@ export default function Home({ user }) {
   return (
     <Section>
       <Hero />
-      <Posts />
+      <Posts user={user} />
     </Section>
   );
 }

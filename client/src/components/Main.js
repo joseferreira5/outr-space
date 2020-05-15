@@ -6,6 +6,7 @@ import Home from './Home';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import Post from './Post';
+import CreatePost from './CreatePost';
 
 const StyledMain = styled.main`
   position: relative;
@@ -28,6 +29,9 @@ export default function Main({ user, handleLogin, handleRegister }) {
         </Route>
         <Route path="/posts/:id">
           <Post user={user} />
+        </Route>
+        <Route path="/create-post">
+          <CreatePost user={user} />
         </Route>
       </Switch>
     </StyledMain>
