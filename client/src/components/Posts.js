@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Moment from 'react-moment';
 
 import Button from './shared/Button';
 import { getPosts } from '../services/posts';
@@ -8,7 +9,7 @@ import { getPosts } from '../services/posts';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  max-width: 1248px;
   margin: 0 auto;
   margin-top: 1.5em;
 `;
@@ -48,12 +49,16 @@ const CardBody = styled.div`
   height: 100%;
 `;
 
+const Author = styled.p`
+  font-size: 0.8rem;
+`;
+
 const Title = styled.h3`
   font-size: 2rem;
 `;
 
 const CommCount = styled.p`
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;
 
 export default function Posts({ user }) {
@@ -82,6 +87,10 @@ export default function Posts({ user }) {
           <StyledLink key={post.id} to={`/posts/${post.id}`}>
             <Card>
               <CardBody>
+                <Author>
+                  Posted by {post.username} about{' '}
+                  <Moment fromNow>{post.created_at}</Moment>
+                </Author>
                 <Title>{post.title}</Title>
                 <CommCount>{post.comments.length} Comments</CommCount>
               </CardBody>

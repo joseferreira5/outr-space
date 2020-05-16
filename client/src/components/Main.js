@@ -1,6 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 
 import Home from './Home';
 import SignUp from './SignUp';
@@ -17,28 +18,31 @@ const StyledMain = styled.main`
 `;
 
 export default function Main({ user, handleLogin, handleRegister }) {
+  const location = useLocation();
   return (
     <StyledMain>
-      <Switch>
-        <Route exact path="/">
-          <Home user={user} />
-        </Route>
-        <Route path="/signup">
-          <SignUp handleRegister={handleRegister} />
-        </Route>
-        <Route path="/login">
-          <LogIn handleLogin={handleLogin} />
-        </Route>
-        <Route exact path="/posts/:id">
-          <Post user={user} />
-        </Route>
-        <Route exact path="/posts/:id/edit">
-          <EditPost user={user} />
-        </Route>
-        <Route path="/create-post">
-          <CreatePost user={user} />
-        </Route>
-      </Switch>
+      <AnimatePresence initial={false} exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/">
+            <Home user={user} />
+          </Route>
+          <Route path="/signup">
+            <SignUp handleRegister={handleRegister} />
+          </Route>
+          <Route path="/login">
+            <LogIn handleLogin={handleLogin} />
+          </Route>
+          <Route exact path="/posts/:id">
+            <Post user={user} />
+          </Route>
+          <Route exact path="/posts/:id/edit">
+            <EditPost user={user} />
+          </Route>
+          <Route path="/create-post">
+            <CreatePost user={user} />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </StyledMain>
   );
 }

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import Moment from 'react-moment';
+import { motion } from 'framer-motion';
 
 import CreateComment from './CreateComment';
 import Button from './shared/Button';
 import { Nav, NavLink } from './shared/NavLink';
 import { getPost, deletePost, deleteComment } from '../services/posts';
 
-const Section = styled.section`
+const Section = styled(motion.section)`
   display: grid;
   grid-template-columns: 1fr 25%;
   grid-template-rows: minmax(30%, auto) 1fr;
@@ -33,6 +35,11 @@ const PostContent = styled.div`
 const Title = styled.h3`
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 1em;
+`;
+
+const Author = styled.p`
+  font-size: 0.8rem;
   margin-bottom: 1em;
 `;
 
@@ -95,7 +102,9 @@ export default function Post({ user }) {
 
   const handleDeletePost = () => {
     deletePost(post.id);
-    history.push('/');
+    setTimeout(() => {
+      history.push('/');
+    }, 300);
   };
 
   const handleDeleteComm = id => {
@@ -104,9 +113,17 @@ export default function Post({ user }) {
   };
 
   return (
-    <Section>
+    <Section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {post && (
         <PostContent>
+          <Author>
+            Posted by {post.username} about{' '}
+            <Moment fromNow>{post.created_at}</Moment>
+          </Author>
           <Title>{post.title}</Title>
           <Text>{post.content}</Text>
           {user ? (
@@ -139,6 +156,10 @@ export default function Post({ user }) {
           post.comments &&
           post.comments.map(comment => (
             <Comment key={comment.id}>
+              <Author>
+                Comment by {comment.user.username} about{' '}
+                <Moment fromNow>{comment.created_at}</Moment>
+              </Author>
               <Text>{comment.body}</Text>
               {user && user.id === comment.user_id && (
                 <OwnerOptions>

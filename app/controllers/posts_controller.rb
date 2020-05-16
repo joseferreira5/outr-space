@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
-    render json: @posts, include: :comments, status: :ok
+    render json: @posts.map(&:return_data), status: :ok
   end
 
   def show

@@ -62,7 +62,9 @@ export default function CreatePost({ user }) {
   const handleSubmit = e => {
     e.preventDefault();
     createPost(post);
-    history.push('/');
+    setTimeout(() => {
+      history.push('/');
+    }, 300);
   };
 
   return (
