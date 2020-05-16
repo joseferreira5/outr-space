@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    render json: @comment, status: :ok
+    render json: @comment.return_data, status: :ok
   end
 
   def create

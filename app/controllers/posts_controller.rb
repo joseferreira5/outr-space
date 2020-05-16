@@ -10,14 +10,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    render json: @post, include: :comments, status: :ok
+    render json: @post.return_data, include: [user: { only: [:username] }], status: :ok
   end
 
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      render json: @post, status: :created, location: @post
+      render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
     end
