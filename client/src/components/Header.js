@@ -40,10 +40,14 @@ const Title = styled(Link)`
 `;
 
 const Text = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: ${props => props.theme.darkShade};
   align-self: center;
-  margin-right: 2em;
+  margin-right: 1em;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export default function Header({ user, handleLogout }) {

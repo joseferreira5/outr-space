@@ -26,6 +26,10 @@ export const Form = styled.form`
   padding: 2em 5em;
   width: 100%;
   max-height: 20em;
+
+  @media (max-width: 480px) {
+    padding: 2em 1em;
+  }
 `;
 
 export const Input = styled.input`
