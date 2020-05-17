@@ -5,7 +5,6 @@ import Moment from 'react-moment';
 import { motion } from 'framer-motion';
 
 import CreateComment from './CreateComment';
-import Button from './shared/Button';
 import { Nav, NavLink } from './shared/NavLink';
 import postBackground from '../assets/postBackground.jpg';
 import { getPost, deletePost, deleteComment } from '../services/posts';
@@ -177,7 +176,7 @@ export default function Post({ user }) {
           post.comments.map(comment => (
             <Comment key={comment.id}>
               <Author>
-                Comment by {comment.user.username} about{' '}
+                {comment.user.username} about{' '}
                 <Moment fromNow>{comment.created_at}</Moment>
               </Author>
               <Text>{comment.body}</Text>

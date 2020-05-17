@@ -15,6 +15,7 @@ const CommBox = styled.div`
 
 const Text = styled.p`
   font-size: 0.7rem;
+  margin-bottom: 0.3em;
 `;
 
 const TextArea = styled.textarea`
