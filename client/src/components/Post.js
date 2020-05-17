@@ -22,6 +22,7 @@ const Section = styled(motion.section)`
   min-height: 100%;
   max-width: 1248px;
   margin: 3em auto;
+  padding-bottom: 1em;
 `;
 
 const PostContent = styled.div`
@@ -47,7 +48,10 @@ const Author = styled.p`
   margin-bottom: 1em;
 `;
 
-const Text = styled.p``;
+const Text = styled.p`
+  line-height: 1.3;
+  margin-bottom: 1em;
+`;
 
 const NavContainer = styled.div`
   width: 100%;
@@ -86,6 +90,14 @@ const OwnerOptions = styled.div`
 
   button {
     margin-left: 0.5em;
+  }
+`;
+
+const Option = styled.p`
+  font-size: 0.7rem;
+  margin-right: 1em;
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -139,8 +151,12 @@ export default function Post({ user }) {
               />
               {user.id === post.user_id && (
                 <OwnerOptions>
-                  <NavLink to={`/posts/${post.id}/edit`}>EDIT</NavLink>
-                  <Button onClick={handleDeletePost}>DELETE</Button>
+                  <Option
+                    onClick={() => history.push(`/posts/${post.id}/edit`)}
+                  >
+                    Edit
+                  </Option>
+                  <Option onClick={handleDeletePost}>Delete</Option>
                 </OwnerOptions>
               )}
             </>
@@ -167,9 +183,9 @@ export default function Post({ user }) {
               <Text>{comment.body}</Text>
               {user && user.id === comment.user_id && (
                 <OwnerOptions>
-                  <Button onClick={() => handleDeleteComm(comment.id)}>
-                    DELETE
-                  </Button>
+                  <Option onClick={() => handleDeleteComm(comment.id)}>
+                    Delete
+                  </Option>
                 </OwnerOptions>
               )}
             </Comment>

@@ -10,14 +10,21 @@ const CommBox = styled.div`
   flex-flow: wrap;
   width: 100%;
   min-height: 10em;
-  margin-top: 2em;
+  margin-top: 1em;
+`;
+
+const Text = styled.p`
+  font-size: 0.7rem;
 `;
 
 const TextArea = styled.textarea`
+  font-family: 'Roboto';
+  font-size: 0.8rem;
   border-radius: 0.3em;
+  padding: 1em;
   min-width: 100%;
   min-height: 8em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.8em;
 `;
 
 export default function CreateComment({ user, postId, onCreate }) {
@@ -38,8 +45,9 @@ export default function CreateComment({ user, postId, onCreate }) {
 
   return (
     <CommBox>
+      <Text>Comment as {user.username}</Text>
       <TextArea onChange={handleChange} value={comment.body} />
-      <Button onClick={handleSubmit}>Comment</Button>
+      <Button onClick={handleSubmit}>COMMENT</Button>
     </CommBox>
   );
 }
