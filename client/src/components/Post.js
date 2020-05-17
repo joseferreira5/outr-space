@@ -7,16 +7,20 @@ import { motion } from 'framer-motion';
 import CreateComment from './CreateComment';
 import Button from './shared/Button';
 import { Nav, NavLink } from './shared/NavLink';
+import postBackground from '../assets/postBackground.jpg';
 import { getPost, deletePost, deleteComment } from '../services/posts';
 
 const Section = styled(motion.section)`
   display: grid;
   grid-template-columns: 1fr 25%;
   grid-template-rows: minmax(30%, auto) 1fr;
-  background-color: ${props => props.theme.darkAccent};
+  background-image: url(${postBackground});
+  background-position: center;
+  background-size: cover;
+  border: 2px solid ${props => props.theme.darkAccent};
   border-radius: 0.3em;
   min-height: 100%;
-  width: 80%;
+  max-width: 1248px;
   margin: 3em auto;
 `;
 
