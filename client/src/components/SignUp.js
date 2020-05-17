@@ -1,36 +1,16 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link, useHistory } from 'react-router-dom';
 
 import Button from './shared/Button';
-
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  max-width: 50%;
-  min-height: 500px;
-  margin: 0 auto;
-  background-color: ${props => props.theme.lightShade};
-  margin-top: 10em;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 15em;
-`;
-
-const Heading = styled.h2`
-  font-size: 2rem;
-`;
-
-const Label = styled.label``;
-
-const Input = styled.input``;
+import {
+  Container,
+  Form,
+  Heading,
+  Label,
+  Input,
+  Image,
+} from './shared/LoginSignup';
+import signupImage from '../assets/signupImage.jpg';
 
 export default function SignUp({ handleRegister }) {
   const [user, setUser] = useState({
@@ -49,7 +29,11 @@ export default function SignUp({ handleRegister }) {
   };
 
   return (
-    <Section>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Form
         onSubmit={e => {
           e.preventDefault();
@@ -89,7 +73,14 @@ export default function SignUp({ handleRegister }) {
           />
         </Label>
         <Button>Submit</Button>
+        <p>
+          Already have an account?{' '}
+          <Link to="/signup" style={{ textDecoration: 'none' }}>
+            Log in here.
+          </Link>{' '}
+        </p>
       </Form>
-    </Section>
+      <Image image={signupImage} />
+    </Container>
   );
 }

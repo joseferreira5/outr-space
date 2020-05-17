@@ -63,7 +63,10 @@ export default function LogIn({ handleLogin }) {
         </Label>
         <Button>Submit</Button>
         <p>
-          Don't have an account? <Link to="/signup">Sign up here.</Link>{' '}
+          Don't have an account?{' '}
+          <Link to="/signup" style={{ textDecoration: 'none' }}>
+            Sign up here.
+          </Link>{' '}
         </p>
       </Form>
       <Image image={loginImage} />

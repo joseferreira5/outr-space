@@ -16,10 +16,10 @@ export const Form = styled.form`
   align-self: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  height: 15em;
-  padding-left: 1em;
+  height: 16em;
+  padding: 0 1em;
 `;
 
 export const Heading = styled.h2`
