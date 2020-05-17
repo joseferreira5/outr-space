@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
+  padding: 0.5em 5%;
 `;
 
 const Heading = styled.div`
@@ -36,6 +36,10 @@ const Title = styled(Link)`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
   }
 `;
 
