@@ -9,6 +9,7 @@ import LogIn from './LogIn';
 import Post from './Post';
 import CreatePost from './CreatePost';
 import EditPost from './EditPost';
+import ScrollToTop from './ScrollToTop';
 
 const StyledMain = styled.main`
   position: relative;
@@ -34,12 +35,15 @@ export default function Main({ user, handleLogin, handleRegister }) {
             <LogIn handleLogin={handleLogin} />
           </Route>
           <Route exact path="/posts/:id">
+            <ScrollToTop />
             <Post user={user} />
           </Route>
           <Route exact path="/posts/:id/edit">
+            <ScrollToTop />
             <EditPost user={user} />
           </Route>
           <Route path="/create-post">
+            <ScrollToTop />
             <CreatePost user={user} />
           </Route>
         </Switch>
