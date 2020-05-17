@@ -14,6 +14,7 @@ const StyledMain = styled.main`
   position: relative;
   width: 100%;
   height: 100vh;
+  padding: 0 0.5em;
   padding-top: 8vh;
 `;
 

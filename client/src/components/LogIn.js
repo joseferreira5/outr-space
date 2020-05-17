@@ -1,36 +1,51 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Button from './shared/Button';
+import loginImage from '../assets/loginImage.jpg';
 
 const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  max-width: 50%;
+  display: grid;
+  grid-template-columns: 70% 1fr;
+  max-width: 700px;
   min-height: 500px;
-  margin: 0 auto;
   background-color: ${props => props.theme.lightShade};
+  margin: 0 auto;
+  border-radius: 0.3em;
   margin-top: 10em;
 `;
 
 const Form = styled.form`
+  align-self: center;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   height: 15em;
+  padding-left: 1em;
 `;
 
 const Heading = styled.h2`
   font-size: 2rem;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+  font-size: 1.2rem;
+`;
 
-const Input = styled.input``;
+const Input = styled.input`
+  border-radius: 0.3em;
+  max-width: 70%;
+  font-family: 'Roboto';
+  font-size: 1rem;
+  padding: 0.2em;
+`;
+
+const Image = styled.div`
+  background-image: url(${loginImage});
+  background-position: center;
+`;
 
 export default function LogIn({ handleLogin }) {
   const [user, setUser] = useState({
@@ -78,7 +93,11 @@ export default function LogIn({ handleLogin }) {
           />
         </Label>
         <Button>Submit</Button>
+        <p>
+          Don't have an account? <Link to="/signup">Sign up here.</Link>{' '}
+        </p>
       </Form>
+      <Image />
     </Section>
   );
 }
