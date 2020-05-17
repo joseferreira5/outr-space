@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #000000;
+  background-color: ${props => props.theme.lightShade};
   border: 1px solid ${props => props.theme.darkShade};
   padding: 10px 15px;
   border-radius: 0.3em;

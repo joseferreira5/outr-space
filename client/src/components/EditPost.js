@@ -1,51 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 
 import Button from './shared/Button';
+import { Container, Form, Input, TextArea, ButtonGrp } from './shared/PostForm';
 import { getPost, updatePost } from '../services/posts';
-
-const Section = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 25%;
-  grid-template-rows: minmax(30%, auto) 1fr;
-  min-height: 100%;
-  max-width: 1248px;
-  margin: 0 auto;
-  margin-top: 3em;
-  padding: 2em;
-`;
-
-const PostForm = styled.form`
-  background-color: ${props => props.theme.lightShade};
-  border-radius: 0.3em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 2em 5em;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  min-height: 3em;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  min-height: 10em;
-  margin-top: 0.5em;
-`;
-
-const ButtonGrp = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 0.5em;
-
-  button {
-    margin-left: 0.5em;
-  }
-`;
 
 export default function EditPost({ user }) {
   const [post, setPost] = useState({ title: '', content: '' });
@@ -71,15 +29,19 @@ export default function EditPost({ user }) {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    updatePost(id, post);
-    history.push(`/posts/${id}`);
+    const res = await updatePost(id, post);
+    res && history.push(`/posts/${id}`);
   };
 
   return (
-    <Section>
-      <PostForm onSubmit={handleSubmit}>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           name="title"
@@ -94,10 +56,10 @@ export default function EditPost({ user }) {
           onChange={handleChange}
         />
         <ButtonGrp>
-          <Button onClick={() => history.push('/')}>CANCEL</Button>
+          <Button onClick={() => history.push(`/posts/${id}`)}>CANCEL</Button>
           <Button type="submit">POST</Button>
         </ButtonGrp>
-      </PostForm>
-    </Section>
+      </Form>
+    </Container>
   );
 }
