@@ -10,7 +10,7 @@ import {
   Input,
   Image,
 } from './shared/LoginSignup';
-import signupImage from '../assets/signupImage.jpg';
+import signupImage from '../assets/rocketClose.jpg';
 
 export default function SignUp({ handleRegister }) {
   const [user, setUser] = useState({

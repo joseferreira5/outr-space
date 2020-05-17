@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import heroBackground from '../assets/heroBackground.jpg';
+import heroBackground from '../assets/milkyway.jpg';
 
 const HeroImage = styled.div`
   background-image: url(${heroBackground});
