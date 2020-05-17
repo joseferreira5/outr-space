@@ -42,7 +42,7 @@ export default function Main({ user, handleLogin, handleRegister }) {
             <ScrollToTop />
             <EditPost user={user} />
           </Route>
-          <Route path="/create-post">
+          <Route exact path="/posts/submit">
             <ScrollToTop />
             <CreatePost user={user} />
           </Route>
