@@ -19,6 +19,7 @@ const Text = styled.p`
   letter-spacing: 6px;
   color: ${props => props.theme.lightShade};
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  text-align: center;
 `;
 
 export default function Hero() {

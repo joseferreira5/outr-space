@@ -6,8 +6,16 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     box-sizing: border-box;
-  }
+    font-size: 16px;
 
+    @media screen and (min-width: 320px) {
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
+    @media screen and (min-width: 1000px) {
+      font-size: 22px;
+    }
+  }
+  
   *,
   ::before,
   ::after {

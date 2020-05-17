@@ -30,7 +30,7 @@ const Logo = styled.img`
 
 const Title = styled(Link)`
   font-family: 'Roboto Slab', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: ${props => props.theme.darkShade};
   text-decoration: none;
 
