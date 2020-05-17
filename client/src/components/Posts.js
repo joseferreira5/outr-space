@@ -77,7 +77,7 @@ export default function Posts({ user }) {
       <Header>
         <Heading>Latest Posts</Heading>
         {user && (
-          <StyledLink to={'/posts/submit'}>
+          <StyledLink to={'/submit'}>
             <Button>NEW POST</Button>
           </StyledLink>
         )}

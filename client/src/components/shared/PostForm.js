@@ -2,13 +2,17 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
-  display: grid;
-  grid-template-columns: 1fr 25%;
-  grid-template-rows: minmax(30%, auto) 1fr;
+  /* display: grid;
+  grid-template-rows: minmax(30%, auto) 1fr; */
+  display: flex;
+  justify-content: flex-start;
+  background-image: url(${props => props.image});
+  background-position: center;
+  background-size: cover;
+  border-radius: 0.3em;
   min-height: 100%;
   max-width: 1248px;
-  margin: 0 auto;
-  margin-top: 3em;
+  margin: 3em auto;
   padding: 2em;
 `;
 
@@ -20,17 +24,25 @@ export const Form = styled.form`
   align-items: flex-end;
   justify-content: space-between;
   padding: 2em 5em;
+  width: 100%;
+  max-height: 20em;
 `;
 
 export const Input = styled.input`
+  font-family: 'Roboto';
+  font-size: 0.8rem;
+  border-radius: 0.3em;
+  padding: 0.5em;
   width: 100%;
-  min-height: 3em;
 `;
 
 export const TextArea = styled.textarea`
   width: 100%;
+  font-family: 'Roboto';
+  font-size: 0.8rem;
+  border-radius: 0.3em;
+  padding: 0.5em;
   min-height: 10em;
-  margin-top: 0.5em;
 `;
 
 export const ButtonGrp = styled.div`

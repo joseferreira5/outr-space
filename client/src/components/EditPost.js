@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 import Button from './shared/Button';
 import { Container, Form, Input, TextArea, ButtonGrp } from './shared/PostForm';
+import editImage from '../assets/editImage.jpg';
 import { getPost, updatePost } from '../services/posts';
 
 export default function EditPost({ user }) {
@@ -40,6 +41,7 @@ export default function EditPost({ user }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      image={editImage}
     >
       <Form onSubmit={handleSubmit}>
         <Input

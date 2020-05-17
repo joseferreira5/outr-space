@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import Button from './shared/Button';
 import { Container, Form, Input, TextArea, ButtonGrp } from './shared/PostForm';
+import createImage from '../assets/createImage.jpg';
 import { createPost } from '../services/posts';
 
 export default function CreatePost({ user }) {
@@ -30,6 +31,7 @@ export default function CreatePost({ user }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      image={createImage}
     >
       <Form onSubmit={handleSubmit}>
         <Input
